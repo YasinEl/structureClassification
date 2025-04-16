@@ -28,7 +28,7 @@ process getClassyfire {
     $params.structure_csv \
     --outdir $params.output_directory_Classyfire \
     --logfile $params.log_Classyfire \
-    --rate-limit 10
+    --rate-limit 1
     """
 }
 
