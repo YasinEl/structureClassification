@@ -181,3 +181,6 @@ nf_output
 
 # data
 data/gnps_cleaned.csv
+
+# classyfire
+classyfire/
