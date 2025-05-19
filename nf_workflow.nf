@@ -10,7 +10,7 @@ CLASSYFIRE_TOOL = "$baseDir/classyfire/Classyfire_2024.jar"
 params.structure_csv = "$baseDir/data/gnps_cleaned.csv"
 
 params.output_directory_Classyfire = "$baseDir/nf_output/Classyfire"
-params.output_directory_Classyfire_local = "$baseDir/nf_output/Classyfire_local"
+params.output_directory_Classyfire_local = "$baseDir/nf_output/Classyfire_local.tsv"
 params.output_directory_Npclassifier = "$baseDir/nf_output/Npclassifier"
 params.output_directory_ChemInfoService = "$baseDir/nf_output/ChemInfoService"
 
