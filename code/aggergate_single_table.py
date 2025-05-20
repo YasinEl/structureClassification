@@ -169,7 +169,6 @@ def process_molprops(json_root_dir):
                 with open(fullpath, 'r', encoding='utf-8') as f:
                     data = json.load(f)
             except Exception as e:
-                # skip files that can't be parsed
                 continue
 
             rec = {'InChIKey_smiles_firstBlock': inchikey_block}
@@ -180,7 +179,7 @@ def process_molprops(json_root_dir):
     df = pd.DataFrame.from_records(records)
     return df
 
-def make_classification_table(classyfire_tsv, npclassifier_dir):
+def make_classification_table(classyfire_tsv, npclassifier_dir, chem_prop_dir):
     """
     Reads a ClassyFire TSV and NPClassifier JSONs, and returns a
     DataFrame with the same three columns + tool='classyfire' or
@@ -188,10 +187,11 @@ def make_classification_table(classyfire_tsv, npclassifier_dir):
     """
     cf = process_classyfire(classyfire_tsv)
     npc = process_npclassifier(npclassifier_dir)
+    chem_prop = process_molprops(chem_prop_dir)
 
     # combine
-    combined = pd.concat([cf, npc], ignore_index=True)
-    return combined
+    combined_classificiation = pd.concat([cf, npc], ignore_index=True)
+    return combined_classificiation, chem_prop
 
 
 def main():
