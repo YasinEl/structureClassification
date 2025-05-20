@@ -119,8 +119,8 @@ def process_npclassifier(root_dir):
     df.loc[mask, 'classification'] = 'glycoside'
 
     # make unique by InChIKey_smiles_firstBlock, and classification
-    melted = melted.drop_duplicates(subset=['InChIKey_smiles_firstBlock', 'classification'])
-    melted = melted.reset_index(drop=True)
+    df = df.drop_duplicates(subset=['InChIKey_smiles_firstBlock', 'classification'])
+    df = df.reset_index(drop=True)
 
     return df
 
